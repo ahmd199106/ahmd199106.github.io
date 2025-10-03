@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Solana Project Images</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .image-container { margin: 20px 0; border: 2px solid #ccc; display: inline-block; }
+        canvas { border: 1px solid #000; }
+    </style>
+</head>
+<body>
+    <h1>Solana Project Image Generator</h1>
+    
+    <div class="image-container">
+        <h3>Dashboard Screenshot (1200x600)</h3>
+        <canvas id="dashboard" width="1200" height="600"></canvas>
+    </div>
+    
+    <div class="image-container">
+        <h3>Token Feed Screenshot (600x400)</h3>
+        <canvas id="tokenFeed" width="600" height="400"></canvas>
+    </div>
+    
+    <div class="image-container">
+        <h3>Transfer Interface Screenshot (600x400)</h3>
+        <canvas id="transfer" width="600" height="400"></canvas>
+    </div>
+
+    <script>
+        // Dashboard Image
+        const dashboardCanvas = document.getElementById('dashboard');
+        const dashboardCtx = dashboardCanvas.getContext('2d');
+        
+        // Background gradient
+        const dashboardGradient = dashboardCtx.createLinearGradient(0, 0, 1200, 600);
+        dashboardGradient.addColorStop(0, '#1a1a2e');
+        dashboardGradient.addColorStop(1, '#16213e');
+        dashboardCtx.fillStyle = dashboardGradient;
+        dashboardCtx.fillRect(0, 0, 1200, 600);
+        
+        // Header
+        dashboardCtx.fillStyle = '#8b5cf6';
+        dashboardCtx.fillRect(0, 0, 1200, 80);
+        
+        // Title
+        dashboardCtx.fillStyle = '#ffffff';
+        dashboardCtx.font = 'bold 32px Arial';
+        dashboardCtx.textAlign = 'center';
+        dashboardCtx.fillText('Solana Token Feed & Transfer App', 600, 50);
+        
+        // Navigation
+        dashboardCtx.fillStyle = '#a855f7';
+        dashboardCtx.fillRect(50, 100, 200, 50);
+        dashboardCtx.fillRect(300, 100, 200, 50);
+        dashboardCtx.fillStyle = '#ffffff';
+        dashboardCtx.font = '18px Arial';
+        dashboardCtx.textAlign = 'left';
+        dashboardCtx.fillText('Cosmo', 60, 130);
+        dashboardCtx.fillText('Transfer', 310, 130);
+        
+        // Main content area
+        dashboardCtx.fillStyle = '#2d3748';
+        dashboardCtx.fillRect(50, 180, 1100, 400);
+        
+        // Content cards
+        dashboardCtx.fillStyle = '#4a5568';
+        dashboardCtx.fillRect(80, 220, 500, 120);
+        dashboardCtx.fillRect(620, 220, 500, 120);
+        
+        // Card content
+        dashboardCtx.fillStyle = '#ffffff';
+        dashboardCtx.font = '16px Arial';
+        dashboardCtx.fillText('Live Token Feed', 100, 250);
+        dashboardCtx.fillText('Real-time SOL transfers', 640, 250);
+        
+        // Footer
+        dashboardCtx.fillStyle = '#8b5cf6';
+        dashboardCtx.fillRect(0, 550, 1200, 50);
+        dashboardCtx.fillStyle = '#ffffff';
+        dashboardCtx.font = '14px Arial';
+        dashboardCtx.textAlign = 'center';
+        dashboardCtx.fillText('Web3 DApp with Live Token Streaming & SOL Transfer', 600, 575);
+
+        // Token Feed Image
+        const tokenCanvas = document.getElementById('tokenFeed');
+        const tokenCtx = tokenCanvas.getContext('2d');
+        
+        // Background
+        tokenCtx.fillStyle = '#1a1a2e';
+        tokenCtx.fillRect(0, 0, 600, 400);
+        
+        // Header
+        tokenCtx.fillStyle = '#8b5cf6';
+        tokenCtx.fillRect(0, 0, 600, 60);
+        tokenCtx.fillStyle = '#ffffff';
+        tokenCtx.font = 'bold 20px Arial';
+        tokenCtx.textAlign = 'center';
+        tokenCtx.fillText('Live Token Feed', 300, 35);
+        
+        // Token cards
+        for (let i = 0; i < 3; i++) {
+            tokenCtx.fillStyle = '#2d3748';
+            tokenCtx.fillRect(20, 80 + i * 90, 560, 70);
+            
+            // Token info
+            tokenCtx.fillStyle = '#ffffff';
+            tokenCtx.font = '14px Arial';
+            tokenCtx.textAlign = 'left';
+            tokenCtx.fillText(`Token ${i + 1}`, 40, 100 + i * 90);
+            tokenCtx.fillText('Supply: 1,000,000', 40, 120 + i * 90);
+            tokenCtx.fillText('Decimals: 6', 40, 140 + i * 90);
+        }
+
+        // Transfer Image
+        const transferCanvas = document.getElementById('transfer');
+        const transferCtx = transferCanvas.getContext('2d');
+        
+        // Background
+        transferCtx.fillStyle = '#1a1a2e';
+        transferCtx.fillRect(0, 0, 600, 400);
+        
+        // Header
+        transferCtx.fillStyle = '#8b5cf6';
+        transferCtx.fillRect(0, 0, 600, 60);
+        transferCtx.fillStyle = '#ffffff';
+        transferCtx.font = 'bold 20px Arial';
+        transferCtx.textAlign = 'center';
+        transferCtx.fillText('SOL Transfer Interface', 300, 35);
+        
+        // Form
+        transferCtx.fillStyle = '#2d3748';
+        transferCtx.fillRect(50, 100, 500, 250);
+        
+        // Form fields
+        transferCtx.fillStyle = '#4a5568';
+        transferCtx.fillRect(80, 130, 440, 40);
+        transferCtx.fillRect(80, 200, 440, 40);
+        
+        // Labels
+        transferCtx.fillStyle = '#ffffff';
+        transferCtx.font = '14px Arial';
+        transferCtx.textAlign = 'left';
+        transferCtx.fillText('Amount (SOL):', 80, 120);
+        transferCtx.fillText('Recipient Address:', 80, 190);
+        
+        // Button
+        transferCtx.fillStyle = '#8b5cf6';
+        transferCtx.fillRect(80, 280, 200, 50);
+        transferCtx.fillStyle = '#ffffff';
+        transferCtx.font = '16px Arial';
+        transferCtx.textAlign = 'center';
+        transferCtx.fillText('Transfer SOL', 180, 310);
+    </script>
+</body>
+</html>
